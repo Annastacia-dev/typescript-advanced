@@ -50,5 +50,51 @@ user2.email = 'jane@gmail.com'
 
 console.log(user2);
 
+//Getters and Setters
+
+class Student {
+
+    private courseCount: number = 1
+
+    constructor(
+       public name: string,
+       public email: string,
+       public  age: number
+    ){}
+
+    get makeEmailSchoolEmail(): string{
+        return `techacademy${this.email}`
+    } // getter method -use get keyword
+
+    get getCourseCount(): number {
+        return this.courseCount
+    }
+
+    //setter - A 'set' accessor cannot have a return type annotation.
+    set setCourseCount(courseNum: number){
+        this.courseCount = courseNum
+    }
+
+    //private method
+
+    private deleteStudent(){
+        console.log("Student has been deleted")
+    }
+}
+
+const karen = new Student ("Karen","karen@gmail.com",15)
+
+karen.email = karen.makeEmailSchoolEmail
+
+karen.setCourseCount = 5
+
+//karen.deleteStudent //error - private and only accessible within class 'Student' 
+
+
+console.log(karen)
+console.log('karen courseCount',karen.getCourseCount)
+
+
+
 
 

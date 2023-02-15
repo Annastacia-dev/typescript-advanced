@@ -31,3 +31,32 @@ class User2 {
 const user2 = new User2("Jane Smith", 30);
 user2.email = 'jane@gmail.com';
 console.log(user2);
+//Getters and Setters
+class Student {
+    constructor(name, email, age) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+        this.courseCount = 1;
+    }
+    get makeEmailSchoolEmail() {
+        return `techacademy${this.email}`;
+    } // getter method -use get keyword
+    get getCourseCount() {
+        return this.courseCount;
+    }
+    //setter - A 'set' accessor cannot have a return type annotation.
+    set setCourseCount(courseNum) {
+        this.courseCount = courseNum;
+    }
+    //private method
+    deleteStudent() {
+        console.log("Student has been deleted");
+    }
+}
+const karen = new Student("Karen", "karen@gmail.com", 15);
+karen.email = karen.makeEmailSchoolEmail;
+karen.setCourseCount = 5;
+//karen.deleteStudent //error - private and only accessible within class 'Student' 
+console.log(karen);
+console.log('karen courseCount', karen.getCourseCount);
