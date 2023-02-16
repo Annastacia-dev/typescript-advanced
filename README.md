@@ -1,10 +1,23 @@
-# Typescript-project
-Initializing and using typescript in a project.
+## Getting started
 
-To create a tsconfig.json file, run the following command in the terminal:
+Assuming you have typescript installed, you can run the following commands to get started:
 
+Clone the repo:
 ```bash
-tsc --init
+git clone git@github.com:Annastacia-dev/typescript-advanced.git
 ```
+Run the following commands:
+```bash
+cd typescript-advanced
+npm install
+tsc -W
+```
+In a new terminal window, run the following command:
+```bash
+npm start
+```
+
+
+
 
 
