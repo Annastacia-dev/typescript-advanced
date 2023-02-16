@@ -26,3 +26,13 @@ identityThree(true);
 identityThree(3);
 identityThree('hello');
 identityThree({ name: 'Gordon Ramsay', cuisine: 'British' });
+// Generics in Arrays & Arrow Functions
+//taking input as an array of any type
+function getArray(arr) {
+    return arr[0];
+}
+// arrow function
+const getArrayTwo = (arr) => arr[0];
+// Alternate syntax
+const getArrayThree = (arr) => arr[0]; // the comma after T is optional, indicates that it is not a tag
+// Generics with Classes

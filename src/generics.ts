@@ -49,5 +49,22 @@ interface Chef {
 identityThree<Chef>({ name: 'Gordon Ramsay', cuisine: 'British' })
 
 
+// Generics in Arrays & Arrow Functions
+
+//taking input as an array of any type
+
+function getArray<T>(arr: T[]): T {
+    return arr[0]
+}
+
+// arrow function
+
+const getArrayTwo = <T>(arr: T[]): T => arr[0]
+
+// Alternate syntax
+
+const getArrayThree = <T,>(arr: T[]): T => arr[0] // the comma after T is optional, indicates that it is not a tag
+
+// Generics with Classes
 
 
