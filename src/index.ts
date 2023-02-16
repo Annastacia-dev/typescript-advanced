@@ -102,11 +102,17 @@ console.log('karen courseCount',karen.getCourseCount)
 
 class SubStudent extends Student { //extends keyword is used to inherit from another class
     isFastLearner: boolean = true
-    changeCourseCount(){
+    changeCourseList(){
         //this.courseCount = 3 // error - private and only accessible within class 'Student'
         this.courseList = ["React", "Angular", "Vue"] // works - protected and accessible within the class and the child class
     }
 }
+
+const matt = new SubStudent("Matt","matt@gmail.com", 20)
+
+matt.changeCourseList()
+
+console.log(matt)
 
 
 

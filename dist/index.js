@@ -1,5 +1,6 @@
 "use strict";
 // creating classes in typescript
+// private, public, protected - access modifiers
 class User {
     constructor(age, email) {
         // with a default value
@@ -37,7 +38,8 @@ class Student {
         this.name = name;
         this.email = email;
         this.age = age;
-        this.courseCount = 1;
+        this.courseCount = 1; //private - can only be accessed within the class
+        this.courseList = ["React"]; //protected - can be accessed within the class and the child class
     }
     get makeEmailSchoolEmail() {
         return `techacademy${this.email}`;
@@ -60,3 +62,17 @@ karen.setCourseCount = 5;
 //karen.deleteStudent //error - private and only accessible within class 'Student' 
 console.log(karen);
 console.log('karen courseCount', karen.getCourseCount);
+//Inheritance
+class SubStudent extends Student {
+    constructor() {
+        super(...arguments);
+        this.isFastLearner = true;
+    }
+    changeCourseList() {
+        //this.courseCount = 3 // error - private and only accessible within class 'Student'
+        this.courseList = ["React", "Angular", "Vue"]; // works - protected and accessible within the class and the child class
+    }
+}
+const matt = new SubStudent("Matt", "matt@gmail.com", 20);
+matt.changeCourseList();
+console.log(matt);
