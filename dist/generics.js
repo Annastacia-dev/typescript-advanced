@@ -35,4 +35,27 @@ function getArray(arr) {
 const getArrayTwo = (arr) => arr[0];
 // Alternate syntax
 const getArrayThree = (arr) => arr[0]; // the comma after T is optional, indicates that it is not a tag
-// Generics with Classes
+// Type Paramaters in Generic Constraints - declare a type parameter that is constrained by another type parameter
+//Syntax
+function getProperty(obj, key) {
+    return obj[key];
+}
+function getUserData(valOne, valTwo) {
+    return {
+        valOne,
+        valTwo
+    };
+}
+getUserData('John', { id: 1, name: 'John', password: '1234' });
+class Sellable {
+    constructor() {
+        this.cart = [];
+    }
+    addToCart(item) {
+        this.cart.push(item);
+    }
+}
+const quiz = new Sellable();
+const course = new Sellable();
+quiz.addToCart({ id: 1, name: 'JavaScript Quiz' });
+course.addToCart({ id: 1, name: 'JavaScript Course', author: 'John' });

@@ -65,6 +65,57 @@ const getArrayTwo = <T>(arr: T[]): T => arr[0]
 
 const getArrayThree = <T,>(arr: T[]): T => arr[0] // the comma after T is optional, indicates that it is not a tag
 
-// Generics with Classes
+// Type Paramaters in Generic Constraints - declare a type parameter that is constrained by another type parameter
+
+//Syntax
+
+function getProperty<T, K extends keyof T>(obj: T, key: K) {
+    return obj[key]
+}
+
+//Example
+
+interface Database{
+    id: number
+    name: string
+    password: string
+}
+
+function getUserData<T , U extends Database >(valOne:T, valTwo:U):object {
+    return {
+        valOne,
+        valTwo
+    }
+}
+
+getUserData('John', {id: 1, name: 'John', password: '1234'})
+
+//Generic Classes
+
+interface Quiz{
+    id: number,
+    name: string
+}
+
+interface Course{
+    id: number,
+    name: string
+    author: string
+}
+
+class Sellable<T>{
+    public cart: T[] = []
+
+    addToCart(item: T){
+        this.cart.push(item)
+    }
+}
+
+const quiz = new Sellable<Quiz>()
+const course = new Sellable<Course>()
+
+quiz.addToCart({id: 1, name: 'JavaScript Quiz'})
+course.addToCart({id: 1, name: 'JavaScript Course', author: 'John'})
+
 
 
