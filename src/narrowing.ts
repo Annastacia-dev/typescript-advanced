@@ -14,3 +14,22 @@ function detectTypeTwo(id: string | null){
 }
 
 // The in operator
+
+interface NewUser {
+    id: string
+    name: string
+}
+
+interface NewAdmin {
+    id: string
+    name: string
+    role: string
+}
+
+function redirect(user: NewUser | NewAdmin){
+    if('role' in user){
+        return `/admin/${user.id}`
+    }
+    return `/user/${user.id}`
+}
+

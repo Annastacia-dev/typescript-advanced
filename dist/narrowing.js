@@ -12,4 +12,9 @@ function detectTypeTwo(id) {
     }
     return id.toLowerCase();
 }
-// The in operator
+function redirect(user) {
+    if ('role' in user) {
+        return `/admin/${user.id}`;
+    }
+    return `/user/${user.id}`;
+}
