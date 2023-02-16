@@ -1,5 +1,7 @@
 // creating classes in typescript
 
+// private, public, protected - access modifiers
+
 class User {
     // with a default value
     name: string = 'John Doe';  //initializing the property - default public
@@ -54,7 +56,9 @@ console.log(user2);
 
 class Student {
 
-    private courseCount: number = 1
+    private courseCount: number = 1 //private - can only be accessed within the class
+
+    protected courseList: string[] = ["React"] //protected - can be accessed within the class and the child class
 
     constructor(
        public name: string,
@@ -93,6 +97,16 @@ karen.setCourseCount = 5
 
 console.log(karen)
 console.log('karen courseCount',karen.getCourseCount)
+
+//Inheritance
+
+class SubStudent extends Student { //extends keyword is used to inherit from another class
+    isFastLearner: boolean = true
+    changeCourseCount(){
+        //this.courseCount = 3 // error - private and only accessible within class 'Student'
+        this.courseList = ["React", "Angular", "Vue"] // works - protected and accessible within the class and the child class
+    }
+}
 
 
 
