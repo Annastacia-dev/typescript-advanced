@@ -134,18 +134,34 @@ function getArea(shape: Shape){
             return Math.PI * shape.radius ** 2
         case 'square':
             return shape.sideLength ** 2
-        case 'rectangle':
-            return shape.width * shape.height
-    }
+    }  
 }
 
 const circle: Circle = { kind: 'circle', radius: 10 }
 const square: Square = { kind: 'square', sideLength: 10 }
-const rectangle: Rectangle = { kind: 'rectangle', width: 10, height: 20 }
+
 
 console.log('circle area:',getArea(circle));
 console.log('square area:',getArea(square));
-console.log('rectangle area:',getArea(rectangle));
+
+
+// Never Type + Exhaustive Checks
+
+function getAreaTwo(shape: Shape){
+    switch(shape.kind){
+        case 'circle':
+            return Math.PI * shape.radius ** 2
+        case 'square':
+            return shape.sideLength ** 2
+        case 'rectangle':
+            return shape.width * shape.height
+        default:
+            const _exhaustiveCheck: never = shape // if we add a new shape, we will get an error here
+            return _exhaustiveCheck
+    }
+}
+const rectangle: Rectangle = { kind: 'rectangle', width: 10, height: 10 }
+console.log('rectangle area:',getAreaTwo(rectangle));
 
 
 
